@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activities.PhotoListActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_medium"
+        android:fitsSystemWindows="true"
+        android:background="@android:color/transparent"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        >
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@android:color/transparent"
+                        app:layout_collapseMode="pin"
+                        app:popupTheme="@style/AppTheme.PopupOverlay" >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+                            <ImageView
+                                android:id="@+id/iv_menu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_menu_black_24dp"
+                                />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/iv_circle"
+                                android:layout_toRightOf="@id/iv_circle"
+                                android:layout_width="@dimen/circleview"
+                                android:layout_height="@dimen/forty8"
+                                android:src="@drawable/image1"
+                                android:layout_alignParentRight="true"
+
+                                />
+                        </RelativeLayout>
+                    </androidx.appcompat.widget.Toolbar>
+
+            <TextView
+                android:layout_below="@id/iv_menu"
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_unsplash"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="@dimen/text_heading_2x"/>
+
+            <TextView
+                android:id="@+id/tv_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_beautiful_free_photos"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="@dimen/text_regular_3x"/>
+<!--            <EditText-->
+<!--                android:id="@+id/et_Search"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/forty8"-->
+<!--                android:hint="Search"-->
+<!--                android:padding="@dimen/margin_medium"-->
+<!--                android:background="@drawable/edit_text_design"-->
+<!--                android:layout_marginTop="@dimen/margin_xxlarge"-->
+<!--                android:textColorHint="@color/greyColor"/>-->
+        </LinearLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+<androidx.recyclerview.widget.RecyclerView
+    android:layout_below="@id/appbar"
+    android:id="@+id/rv_photos"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_large"
+    />
+
+</RelativeLayout>

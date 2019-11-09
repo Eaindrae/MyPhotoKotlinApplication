@@ -1,0 +1,31 @@
+package com.padcmyanmar.padc9.myphotokotlinapplication.persistence
+
+import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
+
+import com.padcmyanmar.padc9.myphotokotlinapplication.data.vos.PhotoVO
+import com.padcmyanmar.padc9.myphotokotlinapplication.persistence.daos.PhotoDao
+import com.padcmyanmar.padc9.myphotokotlinapplication.utils.DB_NAME
+
+
+@Database(entities = [PhotoVO::class], exportSchema = false, version = 1)
+abstract class PhotoDataBase: RoomDatabase() {
+
+    abstract fun photoDao(): PhotoDao
+
+    companion object {
+        private var instance: PhotoDataBase? = null
+
+        fun getInstance(context: Context): PhotoDataBase {
+            if (instance == null) {
+                instance = Room.databaseBuilder(context, PhotoDataBase::class.java, DB_NAME)
+                    .fallbackToDestructiveMigration()
+                    .build()
+            }
+
+            return instance!!
+        }
+    }
+}
